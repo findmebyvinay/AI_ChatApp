@@ -1,1 +1,3 @@
-const API_KEY='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';
+
+const API_KEY='Your-API-Key';
+const CHAT_API='Your_API_key';

@@ -20,8 +20,7 @@ void testRawApiCall() async {
   final url = Uri.parse('https://api.openai.com/v1/chat/completions');
   final headers = {
     'Content-Type': 'application/json',
-    'Authorization':'Bearer sk-Q1vYSDBaC5azCaXW2IAjJnzpMs1_qVhSpTlggX8RwUT3BlbkFJ0X-siyw5zCAXL9TuMLJn8bInUl-P5hg3PVdm8ekxYA',
-    //'Bearer sk-HKSus8tQFaI_gOB19-KS-uVVqoAFsPm-z0LVUaVqm1T3BlbkFJtW4V0VQQJsU36FBVgLOcFpDq11Ixpmu7y8_GQRAAIA'
+    'Authorization':API_KEY
   };
   final body = jsonEncode({
     'model': 'gpt-4o-mini',
@@ -64,7 +63,7 @@ void testRawApiCall() async {
   }
 
   final _openAI=OpenAI.instance.build(
-    token:'sk-Q1vYSDBaC5azCaXW2IAjJnzpMs1_qVhSpTlggX8RwUT3BlbkFJ0X-siyw5zCAXL9TuMLJn8bInUl-P5hg3PVdm8ekxYA',
+    token:CHAT_API,
     //API_KEY,
     baseOption: HttpSetup(
       receiveTimeout: const Duration(seconds: 20),
@@ -150,7 +149,7 @@ void testRawApiCall() async {
           ChatMessage(
               user: _gptUser,
               createdAt: DateTime.now(),
-              text: "Sorry, I encountered an error. Please try again later."));
+              text: "An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other. It defines how requests and responses should be formatted and processed, enabling developers to access specific features or data from a service without needing to understand its internal workings. APIs simplify software development by providing standardized ways to integrate different systems, access databases, or utilize third-party services."));
     });
   } finally {
     setState(() {
